@@ -14,10 +14,10 @@ module.exports = {
     resolve: {
         extensions: ['','.js','.jsx'],
         alias: {
-            module: __dirname + '/node_module'
+            modules: __dirname + '/node_modules'
         }
     },
-    plugin: [
+    plugins: [
         new ExtractTextPlugin('app.css')
     ],
     module: {
