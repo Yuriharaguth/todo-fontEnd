@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
+import axios from 'axios'
+
 import PageHeader from '../template/pageHeader'
 import TodoForm from './todoForm'
 import TodoList from './todoList'
+
+const URL = 'http://localhost:3003/api/todo'
 
 export default class Todo extends Component {
     constructor(props) {
@@ -13,7 +17,9 @@ export default class Todo extends Component {
     }
 
     handleAdd() {
-        
+        const description = this.setState.description 
+        axios.post(URL, {description})
+            .then(resp => console.log('Funcionaou'))
     }
 
     handleChange(e) {
@@ -24,7 +30,10 @@ export default class Todo extends Component {
         return (
             <div>
                 <PageHeader name='Tarefas' small='Cadastro'/>
-                <TodoForm handleChange={this.handleChange} description={this.state.description} handleAdd={this.handleAdd} />
+                <TodoForm 
+                    handleChange={this.handleChange}
+                    description={this.state.description} 
+                    handleAdd={this.handleAdd} />
                 <TodoList />
             </div>
         )
