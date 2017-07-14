@@ -8,8 +8,13 @@ export default props => {
         return list.map(todo => (
             <tr key={todo._id}>
                 <td>{todo.description}</td>
-                <td><IconButton style='danger' icon='trash-o'
-                    onClick={() => props.handleRemove(todo)}/></td>
+                <td>
+                    <IconButton style='danger' icon='trash-o'
+                        onClick={() => props.handleHandleMarkAsDone(todo)}/>
+                    <IconButton style='danger' icon='undo'
+                        onClick={() => props.handleHandleMarkAsPending(todo)}/>
+                    <IconButton style='danger' icon='check'
+                        onClick={() => props.handleRemove(todo)}/></td>
             </tr>
         ))
     }
